@@ -24,6 +24,17 @@ DAC is a platform that will help users to call their members
 > npm run dev
 ```
 
+### Use ngrok
+
+> install ngrok
+
+- https://ngrok.com/download
+
+> Run ngrok for the testing local calls
+```
+> ./ngrok http <port_number>
+```
+
 ### Contributor
 
 - Karangwa Hirwa Julien <juliushirwa@gmail.com>
