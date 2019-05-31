@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import config from './../config/config';
 
 class Users {
-    create(req, res) {
+    register(req, res) {
         User.findOne({ email: req.body.email }).then(user => {
             if (user) {
             return res.status(400).json({ error: `Email with this ${req.body.email} already exists` });
