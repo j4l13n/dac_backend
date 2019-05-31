@@ -2,19 +2,19 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const CallResponseSchema = new Schema({
-    questionOne: {
+    answerOne: {
         type: Boolean
     },
-    questionTwo: {
+    answerTwo: {
         type: Boolean
     },
-    questionThree: {
+    answerThree: {
         type: Boolean
     },
-    questionFour: {
+    answerFour: {
         type: Boolean
     },
-    questionFive: {
+    answerFive: {
         type: Boolean
     },
     date: {

@@ -1,7 +1,9 @@
 [
     {
-        "action": "talk",
-        "text": "Press 1 for music play, Press 2 for sound only.",
+        "action": "stream",
+        "streamUrl": [
+            "https://raw.githubusercontent.com/j4l13n/voice-stream-audio-node/master/public/Info1.mp3"
+        ],
         "bargeIn": true
     },
     {

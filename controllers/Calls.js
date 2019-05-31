@@ -25,6 +25,7 @@ const nexmo = new Nexmo(
 
 const event_url = BASE_URL + '/webhooks/events';
 const answer_url = BASE_URL + '/audio/answer.json';
+const questionOne_url = BASE_URL + '/webhooks/questionOne';
 
 class Calls {
 	call(req, res) {
@@ -47,14 +48,80 @@ class Calls {
 	eventUrl(req, res) {
 		const dtmf = req.body.dtmf;
         console.log(dtmf);
-		const ncco = [
-            {
-                action: 'talk',
-                text: `You press ${dtmf} number.`
-            }
-        ]
-        res.json(ncco);
-	}
+		switch(dtmf) {
+			case '1':
+				const stream = [
+					{
+						action: 'stream',
+						streamUrl: [
+							'https://raw.githubusercontent.com/j4l13n/voice-stream-audio-node/master/public/Info11.mp3'
+                        ],
+                        bargeIn: true
+                    },
+                    {
+                        action: 'input',
+                        eventUrl: [ questionOne_url ]
+                    }
+                ];
+                res.json(stream);
+				break;
+			case '2':
+				const talk = [
+					{
+						action: 'talk',
+						text: `That number is ${dtmf}`
+					}
+                ];
+                res.json(talk)
+				break;
+			default:
+				const wrong = [
+					{
+						action: 'talk',
+						text: 'you entered an invalid number'
+					}
+                ];
+                res.json(wrong);
+                break;
+		}
+    }
+    
+    questionOne(req, res) {
+        const dtmf = req.body.dtmf;
+        console.log(dtmf);
+		switch(dtmf) {
+			case '1':
+				const streamOne = [
+					{
+						action: 'stream',
+						streamUrl: [
+							'https://raw.githubusercontent.com/j4l13n/voice-stream-audio-node/master/public/Info11.mp3'
+                        ],
+                        bargeIn: true
+                    }
+                ];
+                res.json(streamOne);
+				break;
+			case '2':
+				const talk = [
+					{
+						action: 'talk',
+						text: `That number is ${dtmf}`
+					}
+                ];
+                res.json(talk)
+				break;
+			default:
+				const wrong = [
+					{
+						action: 'talk',
+						text: 'you entered an invalid number'
+					}
+                ];
+                res.json(wrong);
+                break;
+		}
+    }
 }
 
 const calls = new Calls();
