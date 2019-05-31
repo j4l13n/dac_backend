@@ -1,13 +1,13 @@
 [
     {
         "action": "talk",
-        "text": "This is test from data analysis and communication",
+        "text": "Press 1 for music play, Press 2 for sound only.",
         "bargeIn": true
     },
     {
         "action": "input",
         "eventUrl": [
-            "https://d27dd8f6.ngrok.io/webhooks/events"
+            "https://7821ade8.ngrok.io/webhooks/events"
         ]
     }
 ]
