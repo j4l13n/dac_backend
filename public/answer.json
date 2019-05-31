@@ -1,0 +1,13 @@
+[
+    {
+        "action": "talk",
+        "text": "This is test from data analysis and communication",
+        "bargeIn": true
+    },
+    {
+        "action": "input",
+        "eventUrl": [
+            "https://d27dd8f6.ngrok.io/webhooks/events"
+        ]
+    }
+]
