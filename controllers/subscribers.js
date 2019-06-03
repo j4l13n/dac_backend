@@ -19,7 +19,7 @@ class Subscriber {
 
     getOne(req, res) {
         const subscriberId = req.params.id;
-        Subscriber
+        Subscribers
             .findOne({_id: subscriberId})
             .exec((err, subscriberDetails) => {
                 if(err) {
@@ -31,15 +31,15 @@ class Subscriber {
     }
 
     create(req, res) {
-        Subscriber.findOne({ phone: req.body.phone }).then(user => {
-            if (user) {
-            return res.status(400).json({ error: "User must have different phone numbers." });
+        Subscribers.findOne({ phone: req.body.phone }).then(subscriber => {
+            if (subscriber) {
+            return res.status(400).json({ error: "Subscriber must have different phone numbers." });
             }
         }).catch(err => {
-            console.log("Something went with finding if the user existed.")
+            console.log("Something went with finding if the subscriber existed.")
         });
 
-        const subscriber = new Subscriber({
+        const subscriber = new Subscribers({
             name: req.body.name,
             phone: req.body.phone,
             district: req.body.district,
@@ -65,7 +65,7 @@ class Subscriber {
 
     update(req, res) {
         const subscriberId = req.params.id;
-        Subscriber
+        Subscribers
             .findByIdAndUpdate(subscriberId, { $set: req.body }).exec((err, subscriberDetails) => {
                 if (err) res.status(500).json({message: err})
                 res.status(200).json({message: "Subscriber updated"})
