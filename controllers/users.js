@@ -108,9 +108,13 @@ class Users {
             .exec((err, userDetails) => {
                 if(err) {
                     console.log(err);
-                    res.status(500).json({message: err});
+                    res.status(500).json({error: `Subscriber Was not found, try again later.` });
                 }
                 res.status(200).json({message: "Subscriber Detail fetched Successfully", data: userDetails});
+            }).catch(err => {
+                res.status.json({
+                    error: `Subscriber Was not found, try again later.`
+                })
             });
     }
 }
