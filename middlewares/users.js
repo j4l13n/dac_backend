@@ -36,7 +36,7 @@ class UserValidator {
             res.json({
                 error: "Name field is required"
             })
-        } else if(validations.isValidName(name)) {
+        } else if(validator.isAlpha(name)) {
             res.json({
                 error: `Name with ${name} is not valid`
             })
