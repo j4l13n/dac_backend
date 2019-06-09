@@ -2,8 +2,16 @@ import User from './../models/user.model';
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import config from './../config/config';
+import validations from './../validations/validations';
+import validator from 'validator';
 
 class Users {
+    /**
+     * 
+     * @param {Object} req 
+     * @param {Object} res 
+     * @returns Email already exist or register a user
+     */
     register(req, res) {
         User.findOne({ email: req.body.email }).then(user => {
             if (user) {
@@ -32,6 +40,12 @@ class Users {
         });
     }
 
+    /**
+     * 
+     * @param {Object} req 
+     * @param {Object} res 
+     * @returns email not found or login a user
+     */
     login(req, res) {
         const email = req.body.email;
         const password = req.body.password;
