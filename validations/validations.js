@@ -12,6 +12,12 @@ class Validations {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
+    /**
+     * 
+     * @param {Object} password 
+     * @returns true if password contains lowercase, 
+     *          uppercase and numbers.
+     */
     isValidPassword(password) {
         if(/\s/.test(password)) {
             return false;
