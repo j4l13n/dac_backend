@@ -63,19 +63,25 @@ class Users {
                 const payload = {
                     id: user.id,
                     name: user.name,
-                    email: user.email
+                    email: user.email,
+                    is_admin: user.is_admin
                 };
         // Sign token
                 jwt.sign(
                     payload,
-                    keys.secretOrKey,
+                    config.secretOrKey,
                     {
                     expiresIn: 31556926 // 1 year in seconds
                     },
                     (err, token) => {
                     res.json({
-                        success: true,
-                        token: "Bearer " + token
+                            status: 200,
+                            data :{
+                                token: "Bearer " + token,
+                                id: payload.id,
+                                email: payload.email,
+                                is_admin: payload.is_admin
+                        }
                     });
                     }
                 );
