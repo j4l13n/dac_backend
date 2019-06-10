@@ -31,12 +31,18 @@ class Subscriber {
     }
 
     create(req, res) {
+<<<<<<< HEAD
         Subscribers.findOne({ phone: req.body.phone }).then(user => {
             if (user) {
             return res.status(400).json({ error: "User must have different phone numbers." });
+=======
+        Subscribers.findOne({ phone: req.body.phone }).then(subscriber => {
+            if (subscriber) {
+            return res.status(400).json({ error: "Subscriber must have different phone numbers." });
+>>>>>>> 97c1a9e1037ada24cdcd1ebbb18a2b47f15b5b32
             }
         }).catch(err => {
-            console.log("Something went with finding if the user existed.")
+            console.log("Something went with finding if the subscriber existed.")
         });
 
         const subscriber = new Subscribers({
