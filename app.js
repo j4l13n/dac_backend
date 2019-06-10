@@ -8,6 +8,7 @@ import config from './config/config';
 import users from './routes/users.route';
 import subscribers from './routes/subscribers.route';
 import calls from './routes/calls.route';
+import messages from './routes/messages.route';
 
 const app = express();
 
@@ -38,6 +39,7 @@ require("./config/passport")(passport);
 app.use(users);
 app.use(subscribers);
 app.use(calls);
+app.use(messages);
 
 app.listen(config.port, () => {
     console.log(`App started on port ${config.port}`);

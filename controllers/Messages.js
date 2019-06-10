@@ -41,7 +41,8 @@ class Messages {
         const message = new Message({
             name: req.body.name,
             phone: req.body.phone,
-            district: req.body.district,
+            title: req.body.title,
+            description: req.body.description
         })
 
         message.save().then(result => {
@@ -56,4 +57,4 @@ class Messages {
     }
 }
 
-export default Messages;
+export default new Messages();
